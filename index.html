@@ -548,30 +548,44 @@
       }
 
       .form-row {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-wrap: wrap;
         gap: 12px;
         margin-bottom: 12px;
       }
 
+      .form-group {
+        flex: 1 1 calc(50% - 6px);
+        min-width: calc(50% - 6px);
+        max-width: 100%;
+      }
+
       .form-group.full-width {
-        grid-column: 1 / -1;
+        flex: 1 1 100%;
+        min-width: 100%;
       }
 
       .form-group label {
         font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .form-group input[type="text"],
       .form-group input[type="number"],
       .form-group select {
         padding: 10px;
-        font-size: 16px;
-        /* 防止iOS自动缩放 */
+        font-size: 16px; /* 防止iOS自动缩放 */
         border-radius: 6px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
       }
 
       .form-group input[type="color"] {
         height: 44px;
+        width: 100%;
       }
 
       .checkbox-group {
@@ -701,8 +715,9 @@
         font-size: 1.3rem;
       }
 
-      .form-row {
-        grid-template-columns: 1fr;
+      .form-group {
+        flex: 1 1 100%;
+        min-width: 100%;
       }
 
       .btn {
